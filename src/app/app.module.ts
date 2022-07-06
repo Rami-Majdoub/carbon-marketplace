@@ -29,6 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatBadgeModule,
     MatPaginatorModule,
     MatSortModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

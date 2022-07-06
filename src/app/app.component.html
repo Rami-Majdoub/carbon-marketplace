@@ -3,12 +3,20 @@
 <div class="toolbar" role="banner">
   <span>Carbon Marketplace</span>
     <div class="spacer"></div>
-    <button mat-stroked-button>Connect Wallet</button>
+    <button *ngIf="!connected" mat-stroked-button (click)="connect()">Connect Wallet</button>
+    
+    <mat-chip-list *ngIf="connected" aria-label="Dog selection">
+      <mat-chip>
+      <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="wallet address"/>
+      {{ address }}
+      </mat-chip>
+    </mat-chip-list>
 
 
 </div>
 
 <div class="content" role="main">
+
 </div>
 
 <router-outlet></router-outlet>
