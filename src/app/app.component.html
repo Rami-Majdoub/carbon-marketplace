@@ -1,5 +1,5 @@
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
+<mat-toolbar class="toolbar" role="banner" color="primary">
   <span>Carbon Marketplace</span>
     <div class="spacer"></div>
     <button *ngIf="!connected" mat-stroked-button (click)="connect()">Connect Wallet</button>
@@ -10,8 +10,7 @@
       {{ address }}
       </mat-chip>
     </mat-chip-list>
-
-</div>
+</mat-toolbar>
 
 <div class="content" role="main">
 	<router-outlet></router-outlet>
