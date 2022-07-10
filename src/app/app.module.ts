@@ -31,10 +31,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatChipsModule } from '@angular/material/chips';
 
+// Components
+import { ProjectDetailsComponent } from 'src/app/components/project-details/project-details.component';
+import { ProjectsComponent } from 'src/app/components/projects/projects.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProjectDetailsComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
