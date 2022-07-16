@@ -15,11 +15,11 @@ export class AppComponent {
   imgUrl = "";
   
   constructor(
-    public contractService_: ConnectWalletService,
+    public walletService_: ConnectWalletService,
   ){}
   
   async connect(){
-    this.address = await this.contractService_.connectAccount();
+    this.address = await this.walletService_.connectAccount();
     this.imgUrl = createIcon({ seed: this.address.toLowerCase() }).toDataURL();
 
     this.address = this.address.substring(0, 5) + "..." + this.address.substring(this.address.length - 4, this.address.length);

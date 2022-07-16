@@ -6,13 +6,12 @@ import { ethers } from "ethers";
   providedIn: 'root'
 })
 export class ConnectWalletService {
-  signer: any;
-  provider: any;
+  public signer: any;
+  public provider: any;
 
   constructor() {
     this.provider = new ethers.providers.Web3Provider(window.ethereum);
   }
-  
   
   async connectAccount() {
     // ask metamask to connect

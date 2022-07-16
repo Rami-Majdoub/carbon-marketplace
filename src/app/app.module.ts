@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -34,12 +35,18 @@ import { MatChipsModule } from '@angular/material/chips';
 // Components
 import { ProjectDetailsComponent } from 'src/app/components/project-details/project-details.component';
 import { ProjectsComponent } from 'src/app/components/projects/projects.component';
+import { ProjectFormComponent } from './components/project-form/project-form.component';
+import { AuditorFormComponent } from './components/auditor/auditor-form/auditor-form.component';
+import { AuditorListComponent } from './components/auditor/auditor-list/auditor-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectDetailsComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectFormComponent,
+    AuditorFormComponent,
+    AuditorListComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +57,7 @@ import { ProjectsComponent } from 'src/app/components/projects/projects.componen
     MatToolbarModule,
     MatMenuModule,
     FormsModule,
+    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatSelectModule,

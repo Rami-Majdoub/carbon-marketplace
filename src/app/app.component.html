@@ -2,8 +2,11 @@
 <mat-toolbar class="toolbar" role="banner" color="primary">
   <span>Carbon Marketplace</span>
     <div class="spacer"></div>
-    <button *ngIf="!connected" mat-stroked-button (click)="connect()">Connect Wallet</button>
+        
+    <button mat-stroked-button routerLink="/projects">Projects</button>&nbsp;
+    <button mat-stroked-button routerLink="/auditors">Auditors</button>&nbsp;
     
+    <button *ngIf="!connected" mat-stroked-button (click)="connect()">Connect Wallet</button>
     <mat-chip-list *ngIf="connected" aria-label="Dog selection">
       <mat-chip>
       <img matChipAvatar src="{{ imgUrl }}" alt="wallet address"/>
