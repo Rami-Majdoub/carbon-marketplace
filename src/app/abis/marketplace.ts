@@ -1,17 +1,28 @@
-export const contract_address = '0x9151F05fAf0cD5771428C99F81a5DC85349EbEE0';
+export const contract_address = '0x4baF77aE84b246A4D76F6489086960E48A2f5EE8';
 export const contract_abi = [
   'constructor()',
-  'event NewAddressRegistered(address addr, uint8 role)',
+  'event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)',
+  'event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)',
+  'event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)',
+  'function DEFAULT_ADMIN_ROLE() view returns (bytes32) @29000000',
+  'function ROLE_ADMIN() view returns (bytes32) @29000000',
+  'function ROLE_AUDITOR() view returns (bytes32) @29000000',
+  'function ROLE_PROJECT_OWNER() view returns (bytes32) @29000000',
   'function addProject(string name) @29000000',
   'function deleteProject(uint256 id) @29000000',
-  'function deployer() view returns (address) @29000000',
   'function editProject(uint256 id, string name) @29000000',
-  'function isAdmin(address address_) view returns (bool) @29000000',
-  'function isAuditor(address address_) view returns (bool) @29000000',
-  'function isProjectOwner(address address_) view returns (bool) @29000000',
-  'function registerAdmin(address address_) @29000000',
-  'function registerAuditor(address address_) @29000000',
-  'function registerProjectOwner(address address_) @29000000',
-  'function removeUser(address address_) @29000000',
-  'function roles(address) view returns (uint8) @29000000'
-];
+  'function getRoleAdmin(bytes32 role) view returns (bytes32) @29000000',
+  'function getRoleMember(bytes32 role, uint256 index) view returns (address) @29000000',
+  'function getRoleMemberCount(bytes32 role) view returns (uint256) @29000000',
+  'function grantRole(bytes32 role, address account) @29000000',
+  'function hasRole(bytes32 role, address account) view returns (bool) @29000000',
+  'function isAdmin(address account) view returns (bool) @29000000',
+  'function isAuditor(address account) view returns (bool) @29000000',
+  'function isProjectOwner(address account) view returns (bool) @29000000',
+  'function registerAdmin(address account) @29000000',
+  'function registerAuditor(address account) @29000000',
+  'function registerProjectOwner(address account) @29000000',
+  'function renounceRole(bytes32 role, address account) @29000000',
+  'function revokeRole(bytes32 role, address account) @29000000',
+  'function supportsInterface(bytes4 interfaceId) view returns (bool) @29000000'
+]
