@@ -7,7 +7,7 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
+    "noPropertyAccessFromIndexSignature": false,
     "noImplicitReturns": true,
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
@@ -22,7 +22,19 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+
+    "allowSyntheticDefaultImports": true,
+    "paths" : {
+      "crypto": ["./node_modules/crypto-browserify"],
+      "stream": ["./node_modules/stream-browserify"],
+      "assert": ["./node_modules/assert"],
+      "http": ["./node_modules/stream-http"],
+      "https": ["./node_modules/https-browserify"],
+      "os": ["./node_modules/os-browserify"],
+    },
+    "typeRoots": ["./node_modules/@types", "./src/types"]
+
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

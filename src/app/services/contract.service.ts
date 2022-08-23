@@ -28,7 +28,7 @@ export class ContractService {
   }
   async isConnectedAdmin(){
     this.connect();
-    return await this.contract.isAdmin(this.wallet.signer.getAddress());
+    return await this.contract.isAdmin(this.wallet.signer?.getAddress());
   }
   async isAdmin(address: string){
     this.connect();
@@ -41,7 +41,7 @@ export class ContractService {
   }
   async isConnectedAuditor(){
     this.connect();
-    return await this.contract.isAuditor(this.wallet.signer.getAddress());
+    return await this.contract.isAuditor(this.wallet.signer?.getAddress());
   }
   async isAuditor(address: string){
     this.connect();
