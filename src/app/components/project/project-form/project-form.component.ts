@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { ContractService } from 'src/app/services/contract.service';
 
@@ -12,6 +13,7 @@ export class ProjectFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
     public contractService_: ContractService,
   ) { }
 
@@ -30,6 +32,9 @@ export class ProjectFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    
   }  
 
 }
