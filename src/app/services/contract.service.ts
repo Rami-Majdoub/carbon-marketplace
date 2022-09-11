@@ -22,12 +22,21 @@ export class ContractService {
   async connect(){
     if(this.contract.signer) return this.contract;
     
-    if(this.contract.provider == null){
-      this.contract = this.contract.connect(
-        this.wallet.signer
-        || new ethers.providers.JsonRpcProvider(this.providerRpc)
-      );
-    }
+    this.contract = this.contract.connect(
+      this.wallet.signer
+      || this.wallet.provider
+      || new ethers.providers.JsonRpcProvider(this.providerRpc)
+    );
+    
+    /*
+    console.log({
+      contract_signer: this.contract.signer,
+      contract_prvider: this.contract.provider,
+      wallet_signer: this.wallet.signer,
+      wallet_prvider: this.wallet.provider,
+    });
+    */
+
     return this.contract;
   }
   
