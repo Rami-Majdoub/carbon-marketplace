@@ -7,7 +7,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
   providedIn: 'root'
 })
 export class ConnectWalletService implements OnDestroy {
-  web3Modal: any;
+  web3Modal: Web3Modal;
   // web3js:  any;
   provider: any;
   public signer: Signer | undefined;
@@ -32,7 +32,7 @@ export class ConnectWalletService implements OnDestroy {
 
     this.web3Modal = new Web3Modal({
       network: "mainnet", // optional change this with the net you want to use like rinkeby etc
-      cacheProvider: false, // optional
+      cacheProvider: true, // optional
       providerOptions, // required
       // theme: "dark"
     });
@@ -84,7 +84,6 @@ export class ConnectWalletService implements OnDestroy {
   }
   
   ngOnDestroy(){
-  	this.web3Modal = null;
   	this.signer = undefined;
   	this.provider = null;
   }
