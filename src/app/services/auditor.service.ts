@@ -1,16 +1,27 @@
 import { Injectable } from '@angular/core';
-import {Apollo, gql} from 'apollo-angular';
+import { Apollo, gql } from 'apollo-angular';
 import { ContractService } from './contract.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectService {
+export class AuditorService {
+
+  private ROLE_AUDITOR: string = "";
 
   constructor(
     private apollo: Apollo,
     private contractService: ContractService,
-  ) { }
+  ) {
+    this.init()
+  }
+
+  async init(){
+    this.ROLE_AUDITOR = await (
+      await this.contractService.connect()
+    ).ROLE_AUDITOR();
+    console.log(this.ROLE_AUDITOR);     
+  }
 
   add(account: string){
     this.contractService.addAdmin(account);
@@ -50,4 +61,6 @@ export class ProjectService {
   remove(){
     // this.contractService.contract.
   }
+
+
 }

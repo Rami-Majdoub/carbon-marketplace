@@ -1,1 +1,11 @@
-<p>auditor-list works!</p>
+<h1>Auditors</h1>
+
+<button mat-stroked-button routerLink="./add">
+  <mat-icon>add</mat-icon>
+  Add
+</button>
+<br>
+
+<div class="shipping-item" *ngFor="let auditor of auditors">
+  <span>{{ auditor.account }}</span>
+</div>

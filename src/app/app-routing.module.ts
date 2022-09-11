@@ -14,8 +14,8 @@ const routes: Routes = [
 	{ path: 'new-project', component: ProjectFormComponent },
 	
 	{ path: 'new-auditor', component: AuditorFormComponent },
-	{ path: 'auditors', component: AuditorFormComponent },
-//	{ path: 'auditors', component: AuditorListComponent },
+	{ path: 'auditors/add', component: AuditorFormComponent },
+	{ path: 'auditors', component: AuditorListComponent },
 	
 	{ path: '',   redirectTo: '/projects', pathMatch: 'full' }, // redirect to projects
 ];

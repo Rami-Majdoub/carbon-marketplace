@@ -5,32 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Material Design
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatChipsModule } from '@angular/material/chips';
+import { AngularMaterialModule } from './material.module';
 
 // Components
 import { ProjectDetailsComponent } from 'src/app/components/project-details/project-details.component';
@@ -38,6 +14,8 @@ import { ProjectsComponent } from 'src/app/components/projects/projects.componen
 import { ProjectFormComponent } from './components/project-form/project-form.component';
 import { AuditorFormComponent } from './components/auditor/auditor-form/auditor-form.component';
 import { AuditorListComponent } from './components/auditor/auditor-list/auditor-list.component';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -52,33 +30,10 @@ import { AuditorListComponent } from './components/auditor/auditor-list/auditor-
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    
-    // Material Design
-    MatToolbarModule,
-    MatMenuModule,
+    AngularMaterialModule,
     FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatCardModule,
-    MatDividerModule,
-    MatProgressSpinnerModule,
-    MatCheckboxModule,
-    MatListModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatIconModule,
-    MatSliderModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSlideToggleModule,
-    MatRadioModule,
-    MatSnackBarModule,
-    MatBadgeModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatChipsModule,
+    GraphQLModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
