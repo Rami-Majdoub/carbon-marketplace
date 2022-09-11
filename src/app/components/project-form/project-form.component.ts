@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 import { ContractService } from 'src/app/services/contract.service';
 
@@ -10,8 +11,23 @@ import { ContractService } from 'src/app/services/contract.service';
 export class ProjectFormComponent implements OnInit {
 
   constructor(
-      public contractService_: ContractService,
+    private formBuilder: FormBuilder,
+    public contractService_: ContractService,
   ) { }
+
+  form = this.formBuilder.group({
+    title: '',
+    location: '',
+    method: '',
+    description: '',
+  });
+
+  onSubmit(): void {
+    if(!this.form.valid) return;
+
+    console.log(this.form.value);
+    this.form.reset();
+  }
 
   ngOnInit(): void {
   }  
