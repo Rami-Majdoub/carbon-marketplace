@@ -1,6 +1,6 @@
-export const contract_address = '0x4baF77aE84b246A4D76F6489086960E48A2f5EE8';
+export const contract_address = '0xB6F1dbcc4D64d07E36B930F4818144a7ED712336';
 export const contract_abi = [
-  'constructor()',
+  'constructor(address _roleManager, address _retiredCarbonCredit)',
   'event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)',
   'event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)',
   'event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)',
@@ -19,10 +19,13 @@ export const contract_abi = [
   'function isAdmin(address account) view returns (bool) @29000000',
   'function isAuditor(address account) view returns (bool) @29000000',
   'function isProjectOwner(address account) view returns (bool) @29000000',
+  'function projects(uint256) view returns (uint256 id, address owner, string name) @29000000',
   'function registerAdmin(address account) @29000000',
   'function registerAuditor(address account) @29000000',
   'function registerProjectOwner(address account) @29000000',
   'function renounceRole(bytes32 role, address account) @29000000',
+  'function retiredCarbonCredit() view returns (address) @29000000',
   'function revokeRole(bytes32 role, address account) @29000000',
+  'function roleManager() view returns (address) @29000000',
   'function supportsInterface(bytes4 interfaceId) view returns (bool) @29000000'
 ]
