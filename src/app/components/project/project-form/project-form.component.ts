@@ -19,6 +19,7 @@ export class ProjectFormComponent implements OnInit {
   ) { }
 
   form = this.formBuilder.group({
+    account: '',
     title: '',
     location: '',
     method: '',
@@ -39,9 +40,16 @@ export class ProjectFormComponent implements OnInit {
         return cid;
       }
     )
-    .then(this.contractService_.contract.functions.addProject)
+    .then(() => this.contractService_.contract.functions.addProject())
     .then(tx => tx.wait())
     .then(console.log)
+  }
+  
+  selectedFile: any = null;
+
+  onFileSelected(event: any): void {
+      this.selectedFile = event.target.files[0] ?? null;
+  
   }
 
   ngOnInit(): void {
