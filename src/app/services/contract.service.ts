@@ -53,9 +53,15 @@ export class ContractService {
     return await this.contract.isAdmin(address);
   }
   
-  async addAuditor(address: string){
+  async addAuditor(
+    account: string,
+    name: string,
+		contact: string,
+		location: string,
+		website: string
+  ){
     this.connect();
-    await this.contract.registerAuditor(address);
+    await this.contract.addAuditor(account, name, contact, location, website);
   }
   async isConnectedAuditor(){
     this.connect();

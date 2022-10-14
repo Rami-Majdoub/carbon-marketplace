@@ -19,7 +19,7 @@ export class AuditorListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.querySubscription = this.service.getAll().subscribe(({ data }: { data: any }) => {
       console.log(data);
-      this.auditors = data.roleGranteds;
+      this.auditors = data.auditors;
     });
   }
 

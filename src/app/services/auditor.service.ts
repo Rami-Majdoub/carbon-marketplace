@@ -42,13 +42,10 @@ export class AuditorService {
     return this.apollo.watchQuery({
       query: gql `
         {
-          roleGranteds(
+          auditors(
           first: $first,
-          skip: $skip
-          where: {
-            role: "0xf698085e4a553677f951d53cb3540c9857b7df86e6fe9dd8675727a5ce6c3398"
-          })
-          { id role account }
+          skip: $skip)
+          { id account name contact location website }
         }
       `
       ,variables: {

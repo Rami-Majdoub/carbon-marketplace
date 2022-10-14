@@ -18,25 +18,20 @@ export class AuditorFormComponent implements OnInit {
   form = this.formBuilder.group({
     name: '',
     account: '',
+		contact:'',
+		location:'',
+		website:''
   });
 
   onSubmit(): void {
     if(!this.form.valid) return;
-
-    console.log(this.form.value);
-    this.form.reset();
+    
+    const { name, account, contact, location, website } = this.form.value;
+  
+    if(name == null || account == null || contact == null || location == null ||  website == null) return;
+    this.contractService_.addAuditor(account, name, contact, location, website);
   }
   
   ngOnInit(): void {
   }
-  
-  public address = "";
-  async addAuditor(){
-    await this.contractService_.addAuditor(this.address);
-  }
-
-  async isAuditor(){
-    console.log(await this.contractService_.isAuditor(this.address));
-  }
-
 }
