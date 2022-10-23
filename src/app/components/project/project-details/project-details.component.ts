@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Project } from 'src/app/models/project';
+import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-project-details',
@@ -16,10 +20,22 @@ export class ProjectDetailsComponent implements OnInit {
   });
 
   constructor(
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-  ) { }
+    private service: ProjectService,
+    ) { }
 
+  instance: Project | null = null;
+  querySubscription: Subscription | undefined;
+  
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (!id) return;
+    
+    this.querySubscription = this.service.get(id).subscribe(({ data }: { data: any }) => {
+      console.log(data);
+      this.instance = data.project;
+    });
   }
 
   onSubmit(): void {

@@ -6,22 +6,22 @@
 <br>
 <img src="https://winrock.org/wp-content/uploads/2019/08/shutterstock_473899657-feat.jpg" style="width: 100%"/>
 
-<h1>Project #1</h1>
-<h2>"El Arriero" Afforestation on degraded grasslands under extensive grazing project</h2>
+<h1>Project #{{ instance?.id }}</h1>
+<h2>{{ instance?.name }}</h2>
 
 <mat-icon color="primary">place</mat-icon>
-Uruguay
+{{ instance?.location }}
 <br>
 <mat-icon color="primary">grading</mat-icon>
-Agriculture Forestry and Other Land Use
+{{ instance?.methods }}
 
 <br>
 <br>
-The project comprises a total of 5,377 ha of land previously under extensive grazing by beef cattle, on which Afforestation for obtaining high-value, long-lived timber products and for sequestering large amounts of carbon dioxide from the atmosphere will be established.
+{{ instance?.description }}
 <br>
 <br>
 <a mat-button
-	href="https://ipfs.io/ipfs/bafybeiantcfnjerj342f2fkgtyxrjjmxuribh6yw5vsc5kdse44umykwzi/project.json"
+	href="https://ipfs.io/ipfs/{{ instance?.report }}"
 	target="_blank">Registration document <mat-icon>open_in_new</mat-icon></a>
 
 <br>

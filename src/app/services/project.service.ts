@@ -17,17 +17,17 @@ export class ProjectService {
 
   }
 
-  get(id: string){
+  get(id: string){    
     return this.apollo.watchQuery({
       query: gql `
-      {
-        project(id: $id) { id owner name location methods description report auditor { name } }
-      }
+        query get($id: String) {
+          project(id: $id) { id owner name location methods description report auditor { name } }
+        }
       `,
       variables: {
         id
       }
-    })
+    }).valueChanges
   }
 
   getAll(){
