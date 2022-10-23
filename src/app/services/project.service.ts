@@ -13,8 +13,10 @@ export class ProjectService {
     private contractService: ContractService,
   ) { }
 
-  add(project: Project){
-
+  add({ owner, name, location, methods, description, report }: Project){
+    return this.contractService.contract.addProject(
+      owner, name, location, methods, description, report
+    );
   }
 
   get(id: string){    

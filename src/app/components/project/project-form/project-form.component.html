@@ -9,15 +9,16 @@
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+	<!-- owner, name, location, methods, description, report -->
 	<mat-form-field appearance="fill">
 		<mat-label>Account</mat-label>
-		<input matInput type="text" formControlName="account">
+		<input matInput type="text" formControlName="owner">
 	</mat-form-field>
 	<br>
 	 
 	<mat-form-field appearance="fill">
 	  <mat-label>Title</mat-label>
-	  <input matInput type="text" formControlName="title">
+	  <input matInput type="text" formControlName="name">
 	</mat-form-field>
 	<br>
   
@@ -29,7 +30,7 @@
   
 	<mat-form-field appearance="fill">
 	  <mat-label>Method</mat-label>
-	  <input matInput type="text" formControlName="method">
+	  <input matInput type="text" formControlName="methods">
 	</mat-form-field>
 	<br>
   
