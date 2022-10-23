@@ -1,83 +1,89 @@
-<div class="align-end">
-  <button mat-stroked-button routerLink="/projects"><mat-icon>arrow_back</mat-icon> All projects</button>
-  <div class="spacer"></div>
-  <!--button mat-stroked-button routerLink="/projects/form/1"><mat-icon>edit</mat-icon> Edit</button-->
+<div *ngIf="!instance">
+	<mat-spinner diameter="80" color="accent" style="margin: auto"></mat-spinner>
 </div>
-<br>
-<img src="https://winrock.org/wp-content/uploads/2019/08/shutterstock_473899657-feat.jpg" style="width: 100%"/>
 
-<h1>Project #{{ instance?.id }}</h1>
-<h2>{{ instance?.name }}</h2>
+<div *ngIf="instance">	
+	<div class="align-end">
+	<button mat-stroked-button routerLink="/projects"><mat-icon>arrow_back</mat-icon> All projects</button>
+	<div class="spacer"></div>
+	<!--button mat-stroked-button routerLink="/projects/form/1"><mat-icon>edit</mat-icon> Edit</button-->
+	</div>
+	<br>
+	<img src="https://winrock.org/wp-content/uploads/2019/08/shutterstock_473899657-feat.jpg" style="width: 100%"/>
 
-<mat-icon color="primary">place</mat-icon>
-{{ instance?.location }}
-<br>
-<mat-icon color="primary">grading</mat-icon>
-{{ instance?.methods }}
+	<h1>Project #{{ instance.id }}</h1>
+	<h2>{{ instance.name }}</h2>
 
-<br>
-<br>
-{{ instance?.description }}
-<br>
-<br>
-<a mat-button
-	href="https://ipfs.io/ipfs/{{ instance?.report }}"
-	target="_blank">Registration document <mat-icon>open_in_new</mat-icon></a>
+	<mat-icon color="primary">place</mat-icon>
+	{{ instance.location }}
+	<br>
+	<mat-icon color="primary">grading</mat-icon>
+	{{ instance.methods }}
 
-<br>
-<br>
+	<br>
+	<br>
+	{{ instance.description }}
+	<br>
+	<br>
+	<a mat-button
+		href="https://ipfs.io/ipfs/{{ instance.report }}"
+		target="_blank">Registration document <mat-icon>open_in_new</mat-icon></a>
 
-<mat-card>
-	<mat-card-title>Buy carbon credits</mat-card-title>
-	Credits available: 1150
-	<br> 
-	1 credit price: 20 USDT
 	<br>
 	<br>
 
-	<form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-		<mat-form-field appearance="fill">
-		<mat-label>Number of carbon credits</mat-label>
-		<input matInput type="number" min="1" formControlName="nbCarbonCredits">
-		</mat-form-field>
+	<mat-card>
+		<mat-card-title>Buy carbon credits</mat-card-title>
+		Credits available: 1150
+		<br> 
+		1 credit price: 20 USDT
 		<br>
-		<button mat-raised-button color="primary" type="submit">Buy</button>
+		<br>
+
+		<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+			<mat-form-field appearance="fill">
+			<mat-label>Number of carbon credits</mat-label>
+			<input matInput type="number" min="1" formControlName="nbCarbonCredits">
+			</mat-form-field>
+			<br>
+			<button mat-raised-button color="primary" type="submit">Buy</button>
+		
+			</form>
+	</mat-card>
+
+	<br>
+
+	<h3>Issuance history</h3>
+	<div class="mat-elevation-z8">
+		<table mat-table [dataSource]="dataSource">
 	
-		</form>
-</mat-card>
+		<!-- Position Column -->
+		<ng-container matColumnDef="report">
+			<th mat-header-cell *matHeaderCellDef> Report </th>
+			<td mat-cell *matCellDef="let element">
+				<a mat-button
+					href="https://ipfs.io/ipfs/bafybeiantcfnjerj342f2fkgtyxrjjmxuribh6yw5vsc5kdse44umykwzi/project.json"
+					target="_blank">Report <mat-icon>open_in_new</mat-icon></a>
+			</td>
+		</ng-container>
+	
+		<!-- Name Column -->
+		<ng-container matColumnDef="carbonCredits">
+			<th mat-header-cell *matHeaderCellDef> Carbon credits issued </th>
+			<td mat-cell *matCellDef="let element"> {{element.carbonCredits}} </td>
+		</ng-container>
+	
+		<!-- Weight Column -->
+		<ng-container matColumnDef="verified">
+			<th mat-header-cell *matHeaderCellDef> Verified </th>
+			<td mat-cell *matCellDef="let element"> {{element.verified}} </td>
+		</ng-container>
+	
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table>
+	</div>
 
-<br>
-
-<h3>Issuance history</h3>
-<div class="mat-elevation-z8">
-	<table mat-table [dataSource]="dataSource">
-  
-	  <!-- Position Column -->
-	  <ng-container matColumnDef="report">
-		<th mat-header-cell *matHeaderCellDef> Report </th>
-		<td mat-cell *matCellDef="let element">
-			<a mat-button
-				href="https://ipfs.io/ipfs/bafybeiantcfnjerj342f2fkgtyxrjjmxuribh6yw5vsc5kdse44umykwzi/project.json"
-				target="_blank">Report <mat-icon>open_in_new</mat-icon></a>
-		</td>
-	  </ng-container>
-  
-	  <!-- Name Column -->
-	  <ng-container matColumnDef="carbonCredits">
-		<th mat-header-cell *matHeaderCellDef> Carbon credits issued </th>
-		<td mat-cell *matCellDef="let element"> {{element.carbonCredits}} </td>
-	  </ng-container>
-  
-	  <!-- Weight Column -->
-	  <ng-container matColumnDef="verified">
-		<th mat-header-cell *matHeaderCellDef> Verified </th>
-		<td mat-cell *matCellDef="let element"> {{element.verified}} </td>
-	  </ng-container>
-  
-	  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-	  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-	</table>
-  </div>
-
-  <br>
+	<br>
+</div>
