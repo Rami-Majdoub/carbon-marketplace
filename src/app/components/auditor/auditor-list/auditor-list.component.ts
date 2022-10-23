@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Auditor } from 'src/app/models/auditor';
 import { AuditorService } from 'src/app/services/auditor.service';
 import { AutoAddProtocol } from 'src/app/helpers/auto-add-protocol';
 
@@ -16,7 +17,7 @@ export class AuditorListComponent implements OnInit, OnDestroy {
   ) { }
 
   querySubscription: Subscription | undefined;
-  auditors: any;
+  auditors: Auditor[] = [];
 
   ngOnInit(): void {
     this.querySubscription = this.service.getAll().subscribe(({ data }: { data: any }) => {

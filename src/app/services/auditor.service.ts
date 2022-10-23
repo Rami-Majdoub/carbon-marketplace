@@ -1,36 +1,49 @@
 import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { ContractService } from './contract.service';
+import { Auditor } from "src/app/models/auditor";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuditorService {
 
-  private ROLE_AUDITOR: string = "";
+  // private ROLE_AUDITOR: string = "";
 
   constructor(
     private apollo: Apollo,
     private contractService: ContractService,
   ) {
-    this.init()
+    // this.init()
   }
 
-  async init(){
-    this.ROLE_AUDITOR = await (
-      await this.contractService.connect()
-    ).ROLE_AUDITOR();
-    console.log(this.ROLE_AUDITOR);     
+  // async init(){
+  //   this.ROLE_AUDITOR = await (
+  //     await this.contractService.connect()
+  //   ).ROLE_AUDITOR();
+  //   console.log(this.ROLE_AUDITOR);     
+  // }
+  
+  add({ account, contact, location, name, website }: Auditor){
+    // use the same order of properties declared in the contract
+    this.contractService.contract.addAuditor(
+      account, contact, location, name, website
+    );
   }
 
-  add(account: string){
-    this.contractService.addAdmin(account);
+  update({ account, contact, location, name, website }: Auditor){
+    // use the same order of properties declared in the contract
+    this.contractService.contract.editAuditor(
+      account, contact, location, name, website
+    )
   }
 
   get(id: string){
     return this.apollo.watchQuery({
       query: gql `
-        { roleGranted(id: $id) { account } }
+        {
+          auditor(id: $id) { id account name contact location website }
+        }
       `,
       variables: {
         id
@@ -38,26 +51,14 @@ export class AuditorService {
     })
   }
 
-  getAll(skip = 0, count = 5){
+  getAll(){
     return this.apollo.watchQuery({
       query: gql `
         {
-          auditors(
-          first: $first,
-          skip: $skip)
-          { id account name contact location website }
+          auditors { id account name contact location website }
         }
       `
-      ,variables: {
-        first: count,
-        skip,
-      }
     }).valueChanges
   }
-
-  remove(){
-    // this.contractService.contract.
-  }
-
 
 }
