@@ -3,44 +3,19 @@
 <div class="align-end">
   <button mat-stroked-button class="align-btn-with-h1" routerLink="/projects/form"><mat-icon>add</mat-icon> Add Project</button>
 </div>
-<mat-card>
-  <mat-card-title>Project #1</mat-card-title>
-  <mat-card-subtitle>‘El Arriero ’ Afforestation on degraded grasslands under extensive grazing project</mat-card-subtitle>
-    Uruguay
-    <br>
-    Agriculture Forestry and Other Land Use
-    <br>
-  <mat-card-actions align="end">
-    <button routerLink="/projects/1" mat-stroked-button>Read more</button>
-  </mat-card-actions>
-  
-</mat-card>
-<br>
 
-<mat-card>
-  <mat-card-title>Project #2</mat-card-title>
-  <mat-card-subtitle>Karnataka Pavagada-II Solar Project by Avaada (150 MW)</mat-card-subtitle>
-    India
-    <br>
-    Energy industries (renewable/non-renewable sources)
-    <br>
-  <mat-card-actions align="end">
-    <button routerLink="/project" mat-stroked-button>Read more</button>
-  </mat-card-actions>
-  
-</mat-card>
-<br>
-
-<mat-card>
-  <mat-card-title>Project #3</mat-card-title>
-  <mat-card-subtitle>Sahamitr Tapioca Chonburi Wastewater Treatment and Biogas Utilization Project</mat-card-subtitle>
-    Thailand
-    <br>
-    Energy industries (renewable/non-renewable sources); Waste handling and disposal
-    <br>
-  <mat-card-actions align="end">
-    <button routerLink="/project" mat-stroked-button>Read more</button>
-  </mat-card-actions>
-  
-</mat-card>
-<br>
+<div *ngFor="let project of projects">
+  <mat-card>
+    <mat-card-title>Project #{{ project.id }}</mat-card-title>
+    <mat-card-subtitle>{{ project.name }}</mat-card-subtitle>
+      {{ project.location }}
+      <br>
+      {{ project.methods }}
+      <br>
+    <mat-card-actions align="end">
+      <button routerLink="/projects/{{ project.id }}" mat-stroked-button>Read more</button>
+    </mat-card-actions>
+    
+  </mat-card>
+  <br>
+</div>
