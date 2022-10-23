@@ -9,7 +9,9 @@
     <mat-card-subtitle>{{ auditor.contact }}</mat-card-subtitle>
     {{ auditor.location }}
     <br>
-    {{ auditor.website }}
+    <mat-card-actions>
+      <a mat-stroked-button [href]="autoAddProtocol(auditor.website)" target="_blank"> Visit website </a>
+    </mat-card-actions>
   </mat-card>
   <br>
 </div>

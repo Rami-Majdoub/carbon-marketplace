@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuditorService } from 'src/app/services/auditor.service';
+import { AutoAddProtocol } from 'src/app/helpers/auto-add-protocol';
 
 @Component({
   selector: 'app-auditor-list',
@@ -9,6 +10,7 @@ import { AuditorService } from 'src/app/services/auditor.service';
 })
 export class AuditorListComponent implements OnInit, OnDestroy {
 
+  autoAddProtocol = AutoAddProtocol;
   constructor(
     private service: AuditorService
   ) { }
