@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Web3Storage } from 'web3.storage'
 
 import { ContractService } from 'src/app/services/contract.service';
 import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project.service';
+import { ethereumAddressValidator } from 'src/app/shared/ethereum-address.directive';
 
 @Component({
   selector: 'app-project-form',
@@ -22,12 +24,12 @@ export class ProjectFormComponent implements OnInit {
   ) { }
 
   form = this.formBuilder.group({
-    owner: '',
-    name: '',
-    location: '',
-    methods: '',
-    description: '',
-    report: ''
+    owner:        new FormControl("", [ Validators.required, ethereumAddressValidator() ]),
+    name:         new FormControl("", [ Validators.required ]),
+    location:     new FormControl("", [ Validators.required ]),
+    methods:      new FormControl("", [ Validators.required ]),
+    description:  new FormControl("", [ Validators.required ]),
+    report:       new FormControl("", [ Validators.required ]),
   });
 
   onSubmit(): void {
@@ -57,6 +59,7 @@ export class ProjectFormComponent implements OnInit {
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0] ?? null;
+    this.form.controls.report.setValue(this.selectedFile);
   }
 
   ngOnInit(): void {
