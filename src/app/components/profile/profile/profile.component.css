@@ -1,0 +1,25 @@
+.bg {
+	position: absolute;
+    top: 60px;
+    right: 0px;
+    left: 0px;
+	height: 200px;
+	background: rgb(255,140,140);
+	background: linear-gradient(90deg, rgba(255,140,140,1) 0%, rgba(255,204,140,1) 100%);
+}
+
+.content {
+	margin-top: 200px;
+}
+
+.profile-img {
+	width: 80px;
+    border-radius: 100%;
+    /* margin-top: 150px auto; */
+}
+
+.card-profile {
+	width: 80px;
+    margin: auto;
+    margin-top: -80px;
+}

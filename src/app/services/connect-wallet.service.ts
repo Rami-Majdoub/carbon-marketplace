@@ -2,6 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { ethers, Signer } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import { createIcon } from '@download/blockies';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,8 @@ export class ConnectWalletService implements OnDestroy {
   public signer: Signer | undefined;
   account: string | undefined;
   balance: string | undefined;
+
+  imgUrl = "";
 
   constructor() {
     const providerOptions = {
@@ -61,6 +64,17 @@ export class ConnectWalletService implements OnDestroy {
 
     this.account = await this.signer?.getAddress();
     return this.account || "";
+  }
+
+  getImage(){
+    if(!this.account || this.account == "") return "";
+    return createIcon({ seed: this.account.toLowerCase() }).toDataURL();
+  }
+
+  getSmallAddress(){
+    if(!this.account || this.account == "") return "";
+    const account = this.account;
+    return account?.substring(0, 5) + "..." + account.substring(account.length - 4, account.length);
   }
 
   async getBalance(): Promise<string>{

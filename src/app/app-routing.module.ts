@@ -8,6 +8,8 @@ import { ProjectListComponent } from 'src/app/components/project/project-list/pr
 import { AuditorFormComponent } from 'src/app/components/auditor/auditor-form/auditor-form.component';
 import { AuditorListComponent } from 'src/app/components/auditor/auditor-list/auditor-list.component';
 
+import { ProfileComponent } from 'src/app/components/profile/profile/profile.component';
+
 const routes: Routes = [
 	{ path: 'projects', component: ProjectListComponent },
 	{ path: 'projects/form', component: ProjectFormComponent },
@@ -17,6 +19,8 @@ const routes: Routes = [
 	{ path: 'auditors', component: AuditorListComponent },
 	{ path: 'auditors/form', component: AuditorFormComponent },
 	{ path: 'auditors/form/:id', component: AuditorFormComponent },
+
+	{ path: 'profile', component: ProfileComponent },
 //	{ path: 'auditors/:id', component: AuditorListComponent },
 	
 	{ path: '',   redirectTo: 'projects', pathMatch: 'full' }, // redirect to projects
