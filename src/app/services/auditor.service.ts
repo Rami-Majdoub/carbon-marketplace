@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
+import { TransactionResponse } from "@ethersproject/providers";
+import { ContractReceipt, ContractTransaction } from "ethers"
 import { ContractService } from './contract.service';
 import { Auditor } from "src/app/models/auditor";
 
@@ -24,16 +26,20 @@ export class AuditorService {
   //   console.log(this.ROLE_AUDITOR);     
   // }
   
-  add({ account, contact, location, name, website }: Auditor){
+  add({ account, contact, location, name, website }: Auditor)
+    : Promise<ContractTransaction>
+  {
     // use the same order of properties declared in the contract
-    this.contractService.contract.addAuditor(
-      account, contact, location, name, website
+    return this.contractService.contract.addAuditor(
+      account, name, contact, location, website
     );
   }
 
-  update({ account, contact, location, name, website }: Auditor){
+  update({ account, contact, location, name, website }: Auditor)
+    : Promise<ContractTransaction>
+  {
     // use the same order of properties declared in the contract
-    this.contractService.contract.editAuditor(
+    return this.contractService.contract.editAuditor(
       account, contact, location, name, website
     )
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Web3Storage } from 'web3.storage'
 
@@ -8,6 +8,8 @@ import { ContractService } from 'src/app/services/contract.service';
 import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project.service';
 import { ethereumAddressValidator } from 'src/app/shared/ethereum-address.directive';
+import { handleSubmittedTx } from 'src/app/utils/handleSubmittedTx';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-project-form',
@@ -21,6 +23,7 @@ export class ProjectFormComponent implements OnInit {
     private route: ActivatedRoute,
     public contractService_: ContractService,
     private service: ProjectService,
+    private _snackBar: MatSnackBar,
   ) { }
 
   form = this.formBuilder.group({
@@ -51,8 +54,7 @@ export class ProjectFormComponent implements OnInit {
       }
     )
     .then(() => this.service.add(instance))
-    .then(tx => tx.wait())
-    .then(console.log)
+    .then(tx => handleSubmittedTx(tx, this._snackBar));
   }
   
   selectedFile: any = null;
