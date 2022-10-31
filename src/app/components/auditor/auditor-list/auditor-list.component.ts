@@ -7,7 +7,7 @@ import { AutoAddProtocol } from 'src/app/helpers/auto-add-protocol';
 @Component({
   selector: 'app-auditor-list',
   templateUrl: './auditor-list.component.html',
-  styleUrls: ['./auditor-list.component.css']
+  styleUrls: ['./auditor-list.component.scss']
 })
 export class AuditorListComponent implements OnInit, OnDestroy {
 

@@ -11,7 +11,7 @@ import { handleSubmittedTx } from 'src/app/utils/handleSubmittedTx';
 @Component({
   selector: 'app-auditor-form',
   templateUrl: './auditor-form.component.html',
-  styleUrls: ['./auditor-form.component.css']
+  styleUrls: ['./auditor-form.component.scss']
 })
 export class AuditorFormComponent implements OnInit {
 
