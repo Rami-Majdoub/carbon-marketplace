@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { ethers, Signer } from "ethers";
+import { ethers, Signer, providers } from "ethers";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { createIcon } from '@download/blockies';
@@ -8,13 +8,13 @@ import { createIcon } from '@download/blockies';
   providedIn: 'root'
 })
 export class ConnectWalletService implements OnDestroy {
+
   web3Modal: Web3Modal;
-  // web3js:  any;
-  provider: any;
+  provider: any; //providers.Web3Provider | undefined;
   public signer: Signer | undefined;
+
   account: string | undefined;
   balance: string | undefined;
-
   imgUrl = "";
 
   constructor() {
@@ -49,15 +49,14 @@ export class ConnectWalletService implements OnDestroy {
       // to enable it, move the next line up, before the if
       this.provider = await this.web3Modal.connect();
 
-      /*
-      this.provider.on("chainChanged", (chainId: number) => {
-        console.log(chainId); 
-      });
-      */
+      // this.provider.on("connect", console.info);
+      // this.provider.on("disconnect", console.log);
+      // this.provider.on("accountsChanged", console.log);
+      // this.provider.on("chainChanged", console.log);      
     }
 
     // create ethers signer
-    if (this.signer == undefined) {
+    if (this.signer == undefined && this.provider) {
       this.provider = new ethers.providers.Web3Provider(this.provider);
       this.signer = this.provider.getSigner();
     }
@@ -99,7 +98,7 @@ export class ConnectWalletService implements OnDestroy {
   
   ngOnDestroy(){
   	this.signer = undefined;
-  	this.provider = null;
+  	this.provider = undefined;
   }
 
 }
