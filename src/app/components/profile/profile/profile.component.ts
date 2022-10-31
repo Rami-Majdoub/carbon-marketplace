@@ -17,9 +17,17 @@ export class ProfileComponent implements OnInit {
   imgUrl = "";
 
   ngOnInit(): void {
-    this.account = this.walletService_.account || "";
-    this.accountSmall = this.walletService_.getSmallAddress();
-    this.imgUrl = this.walletService_.getImage();
+    this.updateUI();
+    this.walletService_.provider.on("accountsChanged", this.updateUI);
+  }
+
+  updateUI() {
+    this.walletService_.getInfos().then(
+      ({account, img, smallAddress}) => {
+        this.account = account;
+        this.accountSmall = smallAddress;
+        this.imgUrl = img;
+    });
   }
 
 }

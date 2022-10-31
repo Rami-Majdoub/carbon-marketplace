@@ -49,20 +49,59 @@ export class ConnectWalletService implements OnDestroy {
       // to enable it, move the next line up, before the if
       this.provider = await this.web3Modal.connect();
 
-      // this.provider.on("connect", console.info);
-      // this.provider.on("disconnect", console.log);
-      // this.provider.on("accountsChanged", console.log);
-      // this.provider.on("chainChanged", console.log);      
-    }
+      // this.provider.on("chainChanged", (arg) => console.log(arg)); // Goerli: 0x5
+      // this.provider.on("disconnect", (arg) => console.log(arg));
+      // this.provider.on("accountsChanged", (arg) => console.log(arg));
+      // this.provider.on("chainChanged", console.log);
+      // this.provider.on('disconnect', (code, reason) => {
+      //   console.log(`Ethereum Provider connection closed: ${reason}. Code: ${code}`);
+      // });
+      
+      // this.provider.request({ method: 'eth_accounts' })
+      // .then((accounts) => {
+      //   console.log(`Accounts:\n${accounts.join('\n')}`);
+      // })
+      // .catch((error) => {
+      //   console.error(
+      //     `Error fetching accounts: ${error.message}.
+      //      Code: ${error.code}. Data: ${error.data}`
+      //   );
+      // });
+      
+    }    
+    this.provider.on("accountsChanged", (arg) => console.log(arg));
 
     // create ethers signer
     if (this.signer == undefined && this.provider) {
       this.provider = new ethers.providers.Web3Provider(this.provider);
       this.signer = this.provider.getSigner();
     }
+    // console.log(this.provider.se);
 
     this.account = await this.signer?.getAddress();
     return this.account || "";
+  }
+
+  async getInfos(){
+    const accounts = await this.provider.send('eth_accounts');
+    const firstAccount = accounts[0];
+    
+    const img = createIcon({ seed: firstAccount.toLowerCase() }).toDataURL();
+
+    const smallAddress = this.formatAddress(firstAccount);
+
+    return {
+      account: firstAccount,
+      img,
+      smallAddress
+    }
+  }
+  
+  async getAccounts(): Promise<string[]>{
+    //accounts: string[]
+    // console.log("aaaa" + await this.provider.send('eth_accounts'));
+    
+    return this.provider.send('eth_accounts');
   }
 
   getImage(){
@@ -74,6 +113,12 @@ export class ConnectWalletService implements OnDestroy {
     if(!this.account || this.account == "") return "";
     const account = this.account;
     return account?.substring(0, 5) + "..." + account.substring(account.length - 4, account.length);
+  }
+
+  formatAddress(address: string): string{
+    return address.substring(0, 5)
+      + "..." +
+      address.substring(address.length - 4, address.length);
   }
 
   async getBalance(): Promise<string>{
