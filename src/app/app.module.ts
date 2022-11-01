@@ -16,6 +16,8 @@ import { ProjectTableComponent } from 'src/app/components/project/project-table/
 
 import { AuditorFormComponent } from 'src/app/components/auditor/auditor-form/auditor-form.component';
 import { AuditorListComponent } from 'src/app/components/auditor/auditor-list/auditor-list.component';
+import { AuditorTableComponent } from './components/auditor/auditor-table/auditor-table.component';
+
 import { ProfileComponent } from 'src/app/components/profile/profile/profile.component';
 
 import { GraphQLModule } from './graphql.module';
@@ -31,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     AuditorListComponent,
     ProfileComponent,
     ProjectTableComponent,
+    AuditorTableComponent
   ],
   imports: [
     BrowserModule,
