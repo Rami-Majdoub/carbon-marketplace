@@ -4,17 +4,17 @@ import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
-  selector: 'app-table-list',
-  templateUrl: './table-list.component.html',
-  styleUrls: ['./table-list.component.css']
+  selector: 'app-project-table',
+  templateUrl: './project-table.component.html',
+  styleUrls: ['./project-table.component.css']
 })
-export class TableListComponent implements OnInit, OnDestroy {
+export class ProjectTableComponent implements OnInit, OnDestroy {
 
   constructor(
     private service: ProjectService,
   ) { }
 
-  displayedColumns: string[] = ['id', 'location', 'name'];
+  displayedColumns: string[] = ['id', 'location', 'name', 'actions'];
   querySubscription: Subscription | undefined;  
   projects: Project[] = [];
 
