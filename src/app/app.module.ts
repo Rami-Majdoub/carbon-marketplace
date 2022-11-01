@@ -1,46 +1,27 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularMaterialModule } from './material.module';
-
-// Components
-import { ProjectDetailsComponent } from 'src/app/components/project/project-details/project-details.component';
-import { ProjectFormComponent } from 'src/app/components/project/project-form/project-form.component';
-import { ProjectListComponent } from 'src/app/components/project/project-list/project-list.component';
-
-import { AuditorFormComponent } from 'src/app/components/auditor/auditor-form/auditor-form.component';
-import { AuditorListComponent } from 'src/app/components/auditor/auditor-list/auditor-list.component';
-import { ProfileComponent } from 'src/app/components/profile/profile/profile.component';
-import { TableListComponent } from 'src/app/components/profile/table-list/table-list.component';
-
-import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app.routing';
+import { ComponentsModule } from './components/components.module';
+import { AppComponent } from './app.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProjectDetailsComponent,
-    ProjectListComponent,
-    ProjectFormComponent,
-    AuditorFormComponent,
-    AuditorListComponent,
-    ProfileComponent,
-    TableListComponent
-  ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    GraphQLModule,
     HttpClientModule,
+    ComponentsModule,
+    RouterModule,
+    AppRoutingModule,
+  ],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,0 @@
-ERROR Error: Uncaught (in promise): Error: invalid signer or provider (argument="signerOrProvider", value="[object Object]", code=INVALID_ARGUMENT, version=contracts/5.6.2)
-Error: invalid signer or provider (argument="signerOrProvider", value="[object Object]", code=INVALID_ARGUMENT, version=contracts/5.6.2)
-
-ERROR Error: Uncaught (in promise): Error: NG0200: Circular dependency in DI detected for ContractService. Find more at https://angular.io/errors/NG0200
-Error: NG0200: Circular dependency in DI detected for ContractService. Find more at https://angular.io/errors/NG0200

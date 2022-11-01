@@ -1,58 +1,21 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": false,
-    "noImplicitReturns": true,
-    "noImplicitAny": false,
-    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom",
-      "esnext.asynciterable"
-    ],
-    "allowSyntheticDefaultImports": true,
-    "paths": {
-      "crypto": [
-        "./node_modules/crypto-browserify"
-      ],
-      "stream": [
-        "./node_modules/stream-browserify"
-      ],
-      "assert": [
-        "./node_modules/assert"
-      ],
-      "http": [
-        "./node_modules/stream-http"
-      ],
-      "https": [
-        "./node_modules/https-browserify"
-      ],
-      "os": [
-        "./node_modules/os-browserify"
-      ]
-    },
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
     "typeRoots": [
-      "./node_modules/@types",
-      "./src/types"
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
     ]
-  },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
   }
 }

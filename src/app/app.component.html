@@ -1,27 +1,2 @@
-<!-- Toolbar -->
-<mat-toolbar class="toolbar" role="banner" color="primary">
-  <span>Carbon Marketplace</span>
-    <div class="spacer"></div>
-        
-    <button mat-stroked-button routerLink="/projects">Projects</button>&nbsp;
-    <button mat-stroked-button routerLink="/auditors">Auditors</button>&nbsp;
-    
-    <button *ngIf="!connected" mat-stroked-button (click)="connect()">Connect Wallet</button>
-    <mat-chip-list *ngIf="connected" [matMenuTriggerFor]="menu">
-      <mat-chip>
-      <img matChipAvatar src="{{ imgUrl }}" alt="wallet address"/>
-      {{ address }}
-      </mat-chip>
-    </mat-chip-list>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/profile">View Profile</button>
-      <button mat-menu-item>Log Out</button>
-    </mat-menu>
-</mat-toolbar>
-<div class="content" role="main">
-	<router-outlet></router-outlet>
-</div>
-<br>
-<br>
-<br>
 
+<router-outlet></router-outlet>
