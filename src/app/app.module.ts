@@ -13,12 +13,16 @@ import { ProjectDetailsComponent } from 'src/app/components/project/project-deta
 import { ProjectFormComponent } from 'src/app/components/project/project-form/project-form.component';
 import { ProjectListComponent } from 'src/app/components/project/project-list/project-list.component';
 import { ProjectTableComponent } from 'src/app/components/project/project-table/project-table.component';
+import { ProjectStatsComponent } from './components/project/project-stats/project-stats.component';
 
 import { AuditorFormComponent } from 'src/app/components/auditor/auditor-form/auditor-form.component';
 import { AuditorListComponent } from 'src/app/components/auditor/auditor-list/auditor-list.component';
 import { AuditorTableComponent } from './components/auditor/auditor-table/auditor-table.component';
 
 import { ProfileComponent } from 'src/app/components/profile/profile/profile.component';
+import { ProfileAdminComponent } from './components/profile/profile-admin/profile-admin.component';
+import { ProfileAuditorComponent } from './components/profile/profile-auditor/profile-auditor.component';
+import { ProfilePoComponent } from './components/profile/profile-po/profile-po.component';
 
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,7 +37,11 @@ import { HttpClientModule } from '@angular/common/http';
     AuditorListComponent,
     ProfileComponent,
     ProjectTableComponent,
-    AuditorTableComponent
+    AuditorTableComponent,
+    ProfileAdminComponent,
+    ProfileAuditorComponent,
+    ProfilePoComponent,
+    ProjectStatsComponent
   ],
   imports: [
     BrowserModule,
