@@ -9,5 +9,5 @@ export interface Project {
   methods: string;
   description: string;
   report: string;
-  auditpr?: Auditor;
+  auditor?: Auditor;
 }
