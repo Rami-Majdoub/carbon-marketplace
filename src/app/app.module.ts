@@ -28,6 +28,7 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserBuyTableComponent } from './components/profile/user-buy-table/user-buy-table.component';
 import { UserCarbonRetirementTableComponent } from './components/profile/user-carbon-retirement-table/user-carbon-retirement-table.component';
+import { AuditTableComponent } from './components/audit/audit-table/audit-table.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { UserCarbonRetirementTableComponent } from './components/profile/user-ca
     ProfilePoComponent,
     ProjectStatsComponent,
     UserBuyTableComponent,
-    UserCarbonRetirementTableComponent
+    UserCarbonRetirementTableComponent,
+    AuditTableComponent
   ],
   imports: [
     BrowserModule,
