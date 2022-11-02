@@ -26,6 +26,7 @@ import { ProfilePoComponent } from './components/profile/profile-po/profile-po.c
 
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UserBuyTableComponent } from './components/profile/user-buy-table/user-buy-table.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileAdminComponent,
     ProfileAuditorComponent,
     ProfilePoComponent,
-    ProjectStatsComponent
+    ProjectStatsComponent,
+    UserBuyTableComponent
   ],
   imports: [
     BrowserModule,
