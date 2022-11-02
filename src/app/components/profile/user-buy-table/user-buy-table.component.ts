@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { PURCHASE } from 'src/app/models/mocks/mock-purshase';
+import { PURCHASE } from 'src/app/models/mocks/mock-purchase';
 import { Purchase } from 'src/app/models/purchase';
 import { ProjectService } from 'src/app/services/project.service';
 
