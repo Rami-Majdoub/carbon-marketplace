@@ -29,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserBuyTableComponent } from './components/profile/user-buy-table/user-buy-table.component';
 import { UserCarbonRetirementTableComponent } from './components/profile/user-carbon-retirement-table/user-carbon-retirement-table.component';
 import { AuditTableComponent } from './components/audit/audit-table/audit-table.component';
+import { SelectProfileComponent } from './components/dev/select-profile/select-profile.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AuditTableComponent } from './components/audit/audit-table/audit-table.
     ProjectStatsComponent,
     UserBuyTableComponent,
     UserCarbonRetirementTableComponent,
-    AuditTableComponent
+    AuditTableComponent,
+    SelectProfileComponent
   ],
   imports: [
     BrowserModule,
