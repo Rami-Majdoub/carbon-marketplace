@@ -14,7 +14,7 @@ export class AuditTableComponent implements OnInit, OnDestroy {
     // private service: AuditorService,
   ) { }
 
-  displayedColumns: string[] = ['date', 'projectName', 'report', 'status', 'actions'];
+  displayedColumns: string[] = ['date', 'projectName', 'status']//, 'report', 'actions'];
   querySubscription: Subscription | undefined;  
   elements: Audit[] = AUDIT; //[];
 

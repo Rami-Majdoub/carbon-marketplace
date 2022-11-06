@@ -1,0 +1,33 @@
+<h1>Request audit</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+	<mat-form-field appearance="fill">
+		<mat-label>Project</mat-label>
+		<input matInput type="number" min="0" formControlName="projectId">
+	</mat-form-field>
+	 
+	<mat-form-field appearance="fill">
+	  <mat-label>Status</mat-label>
+	  <input matInput type="text" formControlName="status">
+	</mat-form-field>
+
+	<mat-form-field appearance="fill">
+	  <mat-label>Credits Received</mat-label>
+	  <input matInput type="number" min="0" formControlName="creditsReceived">
+	</mat-form-field>
+  
+	<mat-form-field appearance="fill">
+	  <mat-label>Comments</mat-label>
+	  <textarea matInput rows="4" formControlName="comments"></textarea>
+	</mat-form-field>
+
+	<button type="button" mat-stroked-button (click)="fileInput.click()">Report document</button>
+	<input hidden (change)="onFileSelected($event)" #fileInput type="file">
+	<span class="file-name">{{selectedFile?.name}}</span>
+	<br>
+	<br>
+
+	<button mat-raised-button color="primary" type="submit">Request Audit</button>
+  
+</form>
+

@@ -13,6 +13,9 @@ import { ProfileAdminComponent } from 'src/app/components/profile/profile-admin/
 import { ProfileAuditorComponent } from 'src/app/components/profile/profile-auditor/profile-auditor.component';
 import { ProfilePoComponent } from 'src/app/components/profile/profile-po/profile-po.component';
 
+import { AuditRequestFormComponent } from 'src/app/components/audit-request/audit-request-form/audit-request-form.component';
+import { AuditReviewFormComponent } from 'src/app/components/audit-review/audit-review-form/audit-review-form.component';
+
 const routes: Routes = [
 	{ path: 'projects', component: ProjectListComponent },
 	{ path: 'projects/form', component: ProjectFormComponent },
@@ -27,6 +30,10 @@ const routes: Routes = [
 	{ path: 'profile-admin', component: ProfileAdminComponent },
 	{ path: 'profile-auditor', component: ProfileAuditorComponent },
 	{ path: 'profile-po', component: ProfilePoComponent },
+	
+	{ path: 'audit-request/form', component: AuditRequestFormComponent },
+	{ path: 'audit-review/form/:auditRequestId', component: AuditReviewFormComponent },
+	
 //	{ path: 'auditors/:id', component: AuditorListComponent },
 	
 	{ path: '',   redirectTo: 'projects', pathMatch: 'full' }, // redirect to projects

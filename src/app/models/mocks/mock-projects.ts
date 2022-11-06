@@ -1,12 +1,5 @@
 import { Project } from '../project';
-
-export const signers = [
-  { address: "0xc1287f1d1d3e9f1ab208ca574d05a3c4fb7065cd" },
-  { address: "0xc1287f1d1d3e9f1ab208ca574d05a3c4fb7065cd" },
-  { address: "0x6cfb9ea52f8d9d3fd7553eae80a042da8bf1ac69" },
-  { address: "0x053edc625ce7b7b22c26c34f454b69dbb455c29a" },
-  { address: "0x2882c0c998f0dc004612ae820b5c5292351ae447" },
-]
+import { signers } from './mock-signers'
 
 export const PROJECTS: Project[] = [
   {

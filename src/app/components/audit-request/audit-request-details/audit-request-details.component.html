@@ -1,0 +1,13 @@
+<!-- {{ instance | json }} -->
+
+<h3>Project</h3>
+<h4>{{ instance?.project?.name }}</h4>
+<h3>Report</h3>
+<a mat-button
+	href="https://ipfs.io/ipfs/{{ instance?.report }}"
+	target="_blank">
+	open document
+	<mat-icon>open_in_new</mat-icon>
+</a>
+<br>
+<br>

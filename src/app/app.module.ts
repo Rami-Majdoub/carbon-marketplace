@@ -29,7 +29,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserBuyTableComponent } from './components/profile/user-buy-table/user-buy-table.component';
 import { UserCarbonRetirementTableComponent } from './components/profile/user-carbon-retirement-table/user-carbon-retirement-table.component';
 import { AuditTableComponent } from './components/audit/audit-table/audit-table.component';
+import { AuditFormComponent } from './components/audit/audit-form/audit-form.component';
 import { SelectProfileComponent } from './components/dev/select-profile/select-profile.component';
+import { AuditRequestFormComponent } from 'src/app/components/audit-request/audit-request-form/audit-request-form.component';
+import { AuditReviewFormComponent } from 'src/app/components/audit-review/audit-review-form/audit-review-form.component';
+import { AuditRequestDetailsComponent } from './components/audit-request/audit-request-details/audit-request-details.component';
+import { AuditRequestTableComponent } from './components/audit-request/audit-request-table/audit-request-table.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,12 @@ import { SelectProfileComponent } from './components/dev/select-profile/select-p
     UserBuyTableComponent,
     UserCarbonRetirementTableComponent,
     AuditTableComponent,
-    SelectProfileComponent
+    AuditFormComponent,
+    SelectProfileComponent,
+    AuditRequestFormComponent,
+    AuditReviewFormComponent,
+    AuditRequestDetailsComponent,
+    AuditRequestTableComponent
   ],
   imports: [
     BrowserModule,
