@@ -3,6 +3,11 @@ import { Subscription } from 'rxjs';
 import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project.service';
 
+// Paginator
+import { AfterViewInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+
 @Component({
   selector: 'app-project-table',
   templateUrl: './project-table.component.html',
@@ -16,18 +21,26 @@ export class ProjectTableComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = ['id', 'location', 'name', 'actions'];
   querySubscription: Subscription | undefined;  
-  projects: Project[] = [];
+  // projects: Project[] = [];
 
   ngOnInit() {
     this.querySubscription = this.service.getAll().subscribe(
       ({ data }: { data: any }) => {
       console.log(data);
-      this.projects = data.projects;
+      this.projects.data = data.projects;
     });
   }
 
   ngOnDestroy(): void {
       this.querySubscription?.unsubscribe();
+  }
+
+  // Paginator
+  @ViewChild(MatPaginator) paginator: any = MatPaginator;
+  projects = new MatTableDataSource<Project>(); // .data
+
+  ngAfterViewInit() {
+    this.projects.paginator = this.paginator;
   }
 
 }
