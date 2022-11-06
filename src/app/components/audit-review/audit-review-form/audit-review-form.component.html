@@ -8,10 +8,18 @@
 		<mat-label>Audit request id</mat-label>
 		<input matInput type="number" min="0" formControlName="auditRequestId">
 	</mat-form-field> -->
-	 
+<!-- 	 
 	<mat-form-field appearance="fill">
 	  <mat-label>Status</mat-label>
 	  <input matInput type="text" formControlName="status">
+	</mat-form-field> -->
+
+	<mat-form-field appearance="fill">
+	  <mat-label>Status</mat-label>
+	  <mat-select formControlName="status">
+		<mat-option value="accepted">Accepted</mat-option>
+		<mat-option value="rejected">Rejected</mat-option>
+	  </mat-select>
 	</mat-form-field>
 
 	<mat-form-field appearance="fill">
