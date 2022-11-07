@@ -31,6 +31,18 @@
 										{{ element.project?.name }}
 									  </td>
 								  </ng-container>
+							  
+								  <ng-container matColumnDef="report">
+									  <th mat-header-cell *matHeaderCellDef> Report </th>
+									  <td mat-cell *matCellDef="let element">
+										<a mat-button
+											href="https://ipfs.io/ipfs/{{ element.report }}"
+											target="_blank">
+												Report
+											<mat-icon>open_in_new</mat-icon>
+										</a>
+									  </td>
+								  </ng-container>
 								
 								  <ng-container matColumnDef="actions">
 									  <th mat-header-cell *matHeaderCellDef> Actions </th>

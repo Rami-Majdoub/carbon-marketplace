@@ -24,7 +24,7 @@ export class AuditRequestTableComponent implements OnInit, OnDestroy, AfterViewI
   @Input() canCreate: boolean = false;
   @Input() canEdit: boolean = false;
 
-  displayedColumns: string[] = ['date', 'projectName'];
+  displayedColumns: string[] = ['date', 'projectName', 'report'];
   // querySubscription: Subscription | undefined;  
   // array: AuditRequest[] = AUDIT_REQUEST;//[];
 
