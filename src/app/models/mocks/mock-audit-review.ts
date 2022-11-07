@@ -15,7 +15,7 @@ export const AUDIT_REVIEW: AuditReview[] = [
   {
     id: '2',
     comments: '',
-    credits: 100,
+    credits: 0,
     auditRequestId: 1,
     auditRequest: AUDIT_REQUEST[1],
     date: '2022-11-03 06:36:29',

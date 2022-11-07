@@ -6,6 +6,13 @@
                   <div class="card-header card-header-danger">
                       <h4 class="card-title ">Projects Table</h4>
                       <p class="card-category"> list of the projects available </p>
+                      <div *ngIf="canCreate" class="align-end align-btn-with-h1">
+                          <button mat-flat-button routerLink="/projects/form">
+                              <mat-icon>add</mat-icon>
+                              New project
+                          </button>
+                      </div>
+
                   </div>
                   <div class="card-body">
                       <div class="table-responsive">

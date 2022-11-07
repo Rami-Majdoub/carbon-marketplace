@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project.service';
@@ -18,6 +18,8 @@ export class ProjectTableComponent implements OnInit, OnDestroy {
   constructor(
     private service: ProjectService,
   ) { }
+
+  @Input() canCreate: boolean = false;
 
   displayedColumns: string[] = ['id', 'location', 'name', 'actions'];
   querySubscription: Subscription | undefined;  

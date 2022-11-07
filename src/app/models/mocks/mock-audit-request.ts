@@ -1,4 +1,5 @@
 import { AuditRequest } from '../audit-request';
+// import { AUDIT_REVIEW } from './mock-audit-review';
 
 import { AUDITOR } from './mock-auditor';
 import { PROJECTS } from './mock-projects';
@@ -12,6 +13,8 @@ export const AUDIT_REQUEST: AuditRequest[] = [
     auditor: AUDITOR[0],
     projectId: 0,
     project: PROJECTS[0],
+    // auditReviewId: AUDIT_REVIEW[0]?.id,
+    // auditReview: AUDIT_REVIEW[0],
   },
   {
     id: '2',
@@ -21,6 +24,8 @@ export const AUDIT_REQUEST: AuditRequest[] = [
     auditor: AUDITOR[1],
     projectId: 1,
     project: PROJECTS[1],
+    // auditReviewId: AUDIT_REVIEW[1]?.id,
+    // auditReview: AUDIT_REVIEW[1],
   },
   {
     id: '3',

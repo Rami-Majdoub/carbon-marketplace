@@ -4,14 +4,8 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header card-header-danger">
-						<h4 class="card-title ">Audit requests table</h4>
-						<p class="card-category"> list of the audit requests </p>
-						<div *ngIf="canCreate" class="align-end align-btn-with-h1">
-							<button mat-flat-button routerLink="/audit-request/form">
-								<mat-icon>add</mat-icon>
-								Request review
-							</button>
-						</div>
+						<h4 class="card-title ">Audit review history</h4>
+						<p class="card-category"> history of the audit reviews </p>
 					</div>
 					<div class="card-body">
 						<div class="table-responsive">
@@ -28,15 +22,29 @@
 								  <ng-container matColumnDef="projectName">
 									  <th mat-header-cell *matHeaderCellDef> Project </th>
 									  <td mat-cell *matCellDef="let element">
-										{{ element.project?.name }}
+										{{ element.auditRequest?.project?.name }}
+									  </td>
+								  </ng-container>
+							  
+								  <ng-container matColumnDef="status">
+									  <th mat-header-cell *matHeaderCellDef> Status </th>
+									  <td mat-cell *matCellDef="let element">
+										{{ element.status }}
+									  </td>
+								  </ng-container>
+							  
+								  <ng-container matColumnDef="credits">
+									  <th mat-header-cell *matHeaderCellDef> Credits </th>
+									  <td mat-cell *matCellDef="let element">
+										{{ element.credits }}
 									  </td>
 								  </ng-container>
 								
 								  <ng-container matColumnDef="actions">
 									  <th mat-header-cell *matHeaderCellDef> Actions </th>
 									  <td mat-cell *matCellDef="let element">
-										<button mat-stroked-button routerLink="/audit-review/form/{{ element.id }}">
-											Review
+										<button mat-icon-button routerLink="/audit-review/form/{{ element.auditRequest.id }}">
+											<mat-icon>edit</mat-icon>
 										</button>
 									  </td>
 								  </ng-container>

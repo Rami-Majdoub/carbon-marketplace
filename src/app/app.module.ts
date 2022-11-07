@@ -35,6 +35,7 @@ import { AuditRequestFormComponent } from 'src/app/components/audit-request/audi
 import { AuditReviewFormComponent } from 'src/app/components/audit-review/audit-review-form/audit-review-form.component';
 import { AuditRequestDetailsComponent } from './components/audit-request/audit-request-details/audit-request-details.component';
 import { AuditRequestTableComponent } from './components/audit-request/audit-request-table/audit-request-table.component';
+import { AuditReviewTableComponent } from './components/audit-review/audit-review-table/audit-review-table.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { AuditRequestTableComponent } from './components/audit-request/audit-req
     AuditRequestFormComponent,
     AuditReviewFormComponent,
     AuditRequestDetailsComponent,
-    AuditRequestTableComponent
+    AuditRequestTableComponent,
+    AuditReviewTableComponent
   ],
   imports: [
     BrowserModule,
