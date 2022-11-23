@@ -19,7 +19,8 @@ export class AuditorTableComponent implements OnInit, OnDestroy, AfterViewInit {
     private service: AuditorService,
   ) { }
 
-  displayedColumns: string[] = ['name', 'location', 'actions'];
+  displayedColumns: string[] = ['name', 'actions'];
+  // displayedColumns: string[] = ['name', 'location', 'actions'];
   querySubscription: Subscription | undefined;  
   // auditors: Auditor[] = [];
 

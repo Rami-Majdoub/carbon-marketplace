@@ -44,19 +44,19 @@
                                       <button mat-icon-button routerLink="/projects/{{ element.id }}">
                                           <mat-icon>preview</mat-icon>
                                       </button>
-                                      <button mat-icon-button>
+                                      <button *ngIf="canApprove" mat-icon-button>
                                           <mat-icon>check_circle_outline</mat-icon>
                                       </button>
-                                      <button mat-icon-button color="warn">
+                                      <button *ngIf="canApprove" mat-icon-button color="warn">
                                           <mat-icon>highlight_off</mat-icon>
                                       </button>
-                                      <button mat-icon-button>
+                                      <button *ngIf="canUpdate" mat-icon-button>
                                           <mat-icon>edit</mat-icon>
                                       </button>
                                       <!-- <button mat-icon-button color="warn">
                                           <mat-icon>delete</mat-icon>
                                       </button> -->
-                                      <button mat-icon-button color="warn">
+                                      <button *ngIf="canDelete" mat-icon-button color="warn">
                                           <mat-icon>delete</mat-icon>
                                       </button>
                                     </td>

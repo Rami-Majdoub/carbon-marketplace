@@ -20,8 +20,11 @@ export class ProjectTableComponent implements OnInit, OnDestroy {
   ) { }
 
   @Input() canCreate: boolean = false;
+  @Input() canUpdate: boolean = false;
+  @Input() canDelete: boolean = false;
+  @Input() canApprove: boolean = false;
 
-  displayedColumns: string[] = ['id', 'location', 'name', 'actions'];
+  displayedColumns: string[] = ['location', 'name', 'actions'];
   querySubscription: Subscription | undefined;  
   // projects: Project[] = [];
 
