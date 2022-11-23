@@ -75,13 +75,9 @@ export class AuditorFormComponent implements OnInit {
 
     this._auditorService.get(this.id).result().then(
       ({ data }: { data: any }) => {
-        const auditor = data.auditor as Auditor;
-        this.form.controls.account.setValue(auditor.account);
-        this.form.controls.name.setValue(auditor.name);
-        this.form.controls.contact.setValue(auditor.contact);
-        this.form.controls.location.setValue(auditor.location);
-        this.form.controls.website.setValue(auditor.website);
+        const { __typename, id, ...auditor } = data.auditor;        
+        this.form.setValue(auditor);
       }
-    )
+    );
   }
 }

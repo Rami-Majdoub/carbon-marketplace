@@ -83,13 +83,8 @@ export class ProjectFormComponent implements OnInit {
 
     this.service.get(this.id).result().then(
       ({ data }: { data: any }) => {
-        const auditor = data.project as Project;
-        this.form.controls.owner.setValue(auditor.owner);
-        this.form.controls.name.setValue(auditor.name);
-        this.form.controls.location.setValue(auditor.location);
-        this.form.controls.methods.setValue(auditor.methods);
-        this.form.controls.description.setValue(auditor.description);
-        this.form.controls.report.setValue(auditor.report);
+        const { __typename, id, auditor, ...project } = data.project;        
+        this.form.setValue(project);
       }
     )
   }
