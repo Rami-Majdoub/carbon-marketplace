@@ -47,7 +47,7 @@ export class AuditorService {
   get(id: string){
     return this.apollo.watchQuery({
       query: gql `
-        {
+        query Get($id: ID!) {
           auditor(id: $id) { id account name contact location website }
         }
       `,

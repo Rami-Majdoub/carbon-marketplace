@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
 import { Auditor } from 'src/app/models/auditor';
 import { AuditorService } from 'src/app/services/auditor.service';
@@ -17,11 +18,13 @@ export class AuditorFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
     private _contractService: ContractService,
     public _auditorService: AuditorService,
     private _snackBar: MatSnackBar,
   ) { }
 
+  id: string | null = null;
   form = this.formBuilder.group({
     name:     new FormControl("", [ Validators.required ]),
     account:  new FormControl("", [ Validators.required, ethereumAddressValidator() ]),
@@ -36,7 +39,14 @@ export class AuditorFormComponent implements OnInit {
       return;
     }
     const auditorInstance = this.form.value as Auditor;
+    if(this.id){
+      this.update(auditorInstance);
+    }else{
+      this.create(auditorInstance);
+    }
+  }
 
+  create(auditorInstance: Auditor){
     this._contractService.connect().then(
       () => this._auditorService.add(auditorInstance)
       ).then(tx => handleSubmittedTx(tx, this._snackBar)
@@ -46,7 +56,32 @@ export class AuditorFormComponent implements OnInit {
       }
     );
   }
+
+  update(auditorInstance: Auditor){
+    this._contractService.connect().then(
+      () => this._auditorService.update(auditorInstance)
+      ).then(tx => handleSubmittedTx(tx, this._snackBar)
+    ).catch(
+      (reason: Error) => {
+        this._snackBar.open(reason.message)
+      }
+    );
+
+  }
   
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.id = this.route.snapshot.paramMap.get('id');
+    if(!this.id) return;
+
+    this._auditorService.get(this.id).result().then(
+      ({ data }: { data: any }) => {
+        const auditor = data.auditor as Auditor;
+        this.form.controls.account.setValue(auditor.account);
+        this.form.controls.name.setValue(auditor.name);
+        this.form.controls.contact.setValue(auditor.contact);
+        this.form.controls.location.setValue(auditor.location);
+        this.form.controls.website.setValue(auditor.website);
+      }
+    )
   }
 }
