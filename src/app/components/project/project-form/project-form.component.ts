@@ -38,8 +38,7 @@ export class ProjectFormComponent implements OnInit {
 
   onSubmit(): void {
     if(!this.form.valid) return;
-    const instance = this.form.value as Project
-    console.log(instance);
+    const instance = this.form.value as Project;
 
     if(this.id){
       instance.id = this.id;
@@ -53,18 +52,16 @@ export class ProjectFormComponent implements OnInit {
     const API_TOKEN_WEB3_STORAGE = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDQwNmJhMmY3QTU4MzA1ODlkZDY0MTk5NkNmQ0JmQTM3YjY0NGNDZDkiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NTM4OTE0NTE3OTEsIm5hbWUiOiJ0ZXN0In0.nZ3WIpmlORmfgpdq_9MqrYY_RA7XMv1Be7j6BYW19YI";
     const client = new Web3Storage({ token: API_TOKEN_WEB3_STORAGE });
 
-    client.put([this.selectedFile])
-    .then(
-      (cid) => {
+    this.contractService_.connect()
+      .then(() => client.put([this.selectedFile]))
+      .then((cid) => {
         console.log(cid);
-        
         instance.report = cid;
-        this.contractService_.connect();
         return cid;
-      }
-    )
-    .then(() => this.service.add(instance))
-    .then(tx => handleSubmittedTx(tx, this._snackBar));
+      })
+      .then(() => this.service.add(instance))
+      .then((tx) => handleSubmittedTx(tx, this._snackBar))
+      .catch((reason: Error) => this._snackBar.open(reason.message));
   }
 
   update(instance: Project){
