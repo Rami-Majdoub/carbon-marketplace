@@ -32,9 +32,10 @@ export class ProjectDetailsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (!id) return;
     
-    this.querySubscription = this.service.get(id).subscribe(({ data }: { data: any }) => {
-      console.log(data);
-      this.instance = data.project;
+    this.querySubscription = this.service.get(id).valueChanges.subscribe(
+      ({ data }: { data: any }) => {
+        console.log(data);
+        this.instance = data.project;
     });
   }
 

@@ -50,7 +50,7 @@
                                       <button *ngIf="canApprove" mat-icon-button color="warn">
                                           <mat-icon>highlight_off</mat-icon>
                                       </button>
-                                      <button *ngIf="canUpdate" mat-icon-button>
+                                      <button *ngIf="canUpdate" mat-icon-button  routerLink="/projects/form/{{ element.id }}">
                                           <mat-icon>edit</mat-icon>
                                       </button>
                                       <!-- <button mat-icon-button color="warn">

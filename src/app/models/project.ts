@@ -2,7 +2,7 @@ import { Auditor } from "./auditor";
 
 // id owner name location methods description report auditor
 export interface Project {
-  id?: number;
+  id?: string;
   name: string;
   owner: string;
   location: string;

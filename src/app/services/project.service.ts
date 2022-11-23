@@ -19,6 +19,12 @@ export class ProjectService {
     );
   }
 
+  update({ id, owner, name, location, methods, description, report }: Project){
+    return this.contractService.contract.editProject(
+      id, owner, name, location, /*methods,*/ description, /*report*/
+    );
+  }
+
   get(id: string){    
     return this.apollo.watchQuery({
       query: gql `
@@ -29,7 +35,7 @@ export class ProjectService {
       variables: {
         id
       }
-    }).valueChanges
+    })
   }
 
   getAll(){
