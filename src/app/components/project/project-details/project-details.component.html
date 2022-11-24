@@ -13,15 +13,6 @@
 
 	<h1>Project #{{ instance.id }}</h1>
 	<h2>{{ instance.name }}</h2>
-
-	<mat-icon color="primary">place</mat-icon>
-	{{ instance.location }}
-	<br>
-	<mat-icon color="primary">grading</mat-icon>
-	{{ instance.methods }}
-
-	<br>
-	<br>
 	{{ instance.description }}
 	<br>
 	<br>
@@ -29,43 +20,33 @@
 		href="https://ipfs.io/ipfs/{{ instance.report }}"
 		target="_blank">Registration document <mat-icon>open_in_new</mat-icon></a>
 
-	<br>
-	<br>
-
-	<!-- <mat-card>
-		<mat-card-title>Buy carbon credits</mat-card-title>
-		Credits available: 1150
-		<br> 
-		1 credit price: 20 USDT
-		<br>
-		<br>
-
-		<form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-			<mat-form-field appearance="fill">
-			<mat-label>Number of carbon credits</mat-label>
-			<input matInput type="number" min="1" formControlName="nbCarbonCredits">
-			</mat-form-field>
-			<br>
-			<button mat-raised-button color="primary" type="submit">Buy</button>
-		
-			</form>
-	</mat-card> -->
-
 	<div class="container-fluid">
 		<div class="row">
 	
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="card card-stats">
-					<div class="card-header card-header-success card-header-icon">
+					<div class="card-header card-header-info card-header-icon">
 						<div class="card-icon">
-							<i class="material-icons">generating_tokens</i>
+							<i class="material-icons">place</i>
 						</div>
-						<p class="card-category">Credits available</p>
-						<h3 class="card-title">152 Credit</h3>
+						<p class="card-category">Location</p>
+						<h3 class="card-title">{{ instance.location }}</h3>
+
 					</div>
 					<div class="card-footer">
-						<!-- <button mat-stroked-button>Buy credits</button> -->
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="card card-stats">
+					<div class="card-header card-header-danger card-header-icon">
+						<div class="card-icon">
+							<i class="material-icons">grading</i>
+						</div>
+						<p class="card-category">Methods</p>
+						<h3 class="card-title">{{ instance.methods }}</h3>
+					</div>
+					<div class="card-footer">
 					</div>
 				</div>
 			</div>
@@ -74,10 +55,10 @@
 				<div class="card card-stats">
 					<div class="card-header card-header-warning card-header-icon">
 						<div class="card-icon">
-							<i class="material-icons">sell</i>
+							<i class="material-icons">generating_tokens</i>
 						</div>
-						<p class="card-category">Credit Price (1 tCO2)</p>
-						<h3 class="card-title">1.2 MATIC</h3>
+						<p class="card-category">Credits available</p>
+						<h3 class="card-title">100 Credit</h3>
 					</div>
 					<div class="card-footer">
 					</div>
@@ -86,8 +67,7 @@
 
 		</div>
 	</div>
-	<br>
 
-	<!-- <h3>Issuance history</h3> -->
 	<app-audit-review-table></app-audit-review-table>
+	<app-purchase-form></app-purchase-form>
 </div>

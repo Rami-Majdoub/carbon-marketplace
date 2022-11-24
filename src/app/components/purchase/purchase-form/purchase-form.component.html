@@ -1,0 +1,50 @@
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="col-md-12">
+			<div class="card card-category">
+				<div class="card-header card-header-success">
+					<h4 class="card-title">Buy Carbon Credits</h4>
+					<p class="card-category">1 Carbon Credit represents 1 tonne of CO2e</p>
+				</div>
+				<div class="card-body">
+					<form [formGroup]="form" (ngSubmit)="onSubmit()">				
+					<mat-form-field appearance="outline">
+						<mat-label>Quantity</mat-label>
+						<input #quantity matInput type="number" min="0" max="{{maxQuantity}}" formControlName="quantity">
+						<mat-icon matSuffix>generating_tokens</mat-icon>
+					</mat-form-field>
+
+					<table style="width: 100%;">
+						<tr>
+							<td>
+								<h3>1 Carbon Credit</h3>
+							</td>
+							<td style='float:right; text-align:right;'>
+								<h3>{{price}} MATIC</h3>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<mat-divider></mat-divider>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<h3>Total</h3>
+							</td>
+							<td style='float:right; text-align:right;'>
+								<h3>{{ parseNumber(quantity.value || 0) * price }} MATIC</h3>
+							</td>
+						</tr>
+					</table>
+				
+					<button style="width: 100%;" mat-raised-button color="primary" type="submit">Buy Now</button>
+					  
+				</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
