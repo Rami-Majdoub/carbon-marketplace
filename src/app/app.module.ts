@@ -37,6 +37,7 @@ import { AuditRequestDetailsComponent } from './components/audit-request/audit-r
 import { AuditRequestTableComponent } from './components/audit-request/audit-request-table/audit-request-table.component';
 import { AuditReviewTableComponent } from './components/audit-review/audit-review-table/audit-review-table.component';
 import { PurchaseFormComponent } from './components/purchase/purchase-form/purchase-form.component';
+import { CreditsSaleListComponent } from './components/credits-sale/credits-sale-list/credits-sale-list.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { PurchaseFormComponent } from './components/purchase/purchase-form/purch
     AuditRequestDetailsComponent,
     AuditRequestTableComponent,
     AuditReviewTableComponent,
-    PurchaseFormComponent
+    PurchaseFormComponent,
+    CreditsSaleListComponent
   ],
   imports: [
     BrowserModule,

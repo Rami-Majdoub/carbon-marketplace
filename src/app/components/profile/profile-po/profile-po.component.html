@@ -3,7 +3,7 @@
 <div class="container-fluid">
 	<div class="row">
 
-		<div class="col-lg-4 col-md-6 col-sm-6">
+		<div class="col-md-6">
 			<div class="card card-stats">
 				<div class="card-header card-header-warning card-header-icon">
 					<div class="card-icon">
@@ -17,7 +17,7 @@
 			</div>
 		</div>
 
-		<div class="col-lg-4 col-md-6 col-sm-6">
+		<div class="col-md-6">
 			<div class="card card-stats">
 				<div class="card-header card-header-danger card-header-icon">
 					<div class="card-icon">
@@ -30,42 +30,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
 
-		<div class="col-lg-4 col-md-6 col-sm-6">
+		<div class="col-md-6">
 			<div class="card card-stats">
 				<div class="card-header card-header-info card-header-icon">
-					<div class="card-icon">
-						<i class="material-icons">generating_tokens</i>
-					</div>
-					<p class="card-category">Credits Balance</p>
-					<h3 class="card-title">12.87 TCO2</h3>
-				</div>
-				<div class="card-footer">
-					<button mat-stroked-button>Sell Credits</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-md-6 col-sm-6">
-			<div class="card card-stats">
-				<div class="card-header card-header-icon">
-					<div class="card-icon">
-						<i class="material-icons">storefront</i>
-					</div>
-					<p class="card-category">Credits on sale</p>
-					<h3 class="card-title">1002 TCO2</h3>
-				</div>
-				<div class="card-footer">
-					<button mat-stroked-button>Reduce Quantity</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-4 col-md-6 col-sm-6">
-			<div class="card card-stats">
-				<div class="card-header card-header-success card-header-icon">
 					<div class="card-icon">
 						<i class="material-icons">sell</i>
 					</div>
@@ -78,7 +46,23 @@
 			</div>
 		</div>
 
+		<div class="col-md-6">
+			<div class="card card-stats">
+				<div class="card-header card-header-success card-header-icon">
+					<div class="card-icon">
+						<i class="material-icons">generating_tokens</i>
+					</div>
+					<p class="card-category">Credits Balance</p>
+					<h3 class="card-title">100 TCO2</h3>
+				</div>
+				<div class="card-footer">
+				</div>
+			</div>
+		</div>
+
 	</div>
+
+	<!-- <app-credits-sale-list></app-credits-sale-list> -->
 	<!-- <app-project-stats></app-project-stats> -->
 	<app-audit-request-table [canCreate]="true"></app-audit-request-table>
 	<app-audit-review-table></app-audit-review-table>
